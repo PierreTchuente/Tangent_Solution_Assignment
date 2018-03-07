@@ -66,7 +66,62 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.js" />
+    <Content Include="app\employee\controllers\employeeControler.js" />
+    <Content Include="app\employee\module.js" />
+    <Content Include="app\employee\service\employeeService.js" />
+    <Content Include="app\login\controllers\loginControler.js" />
+    <Content Include="app\login\module.js" />
+    <Content Include="app\login\service\loginService.js" />
+    <Content Include="assets\css\AdminLTE.css" />
+    <Content Include="assets\css\AdminLTE.min.css" />
+    <Content Include="assets\css\bootstrap-theme.css" />
+    <Content Include="assets\css\bootstrap-theme.min.css" />
+    <Content Include="assets\css\bootstrap.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\font-awesome.css" />
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\ionicons.css" />
+    <Content Include="assets\css\ionicons.min.css" />
+    <Content Include="assets\css\skin-blue.css" />
+    <Content Include="assets\css\skin-blue.min.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\fonts\ionicons.svg" />
+    <Content Include="assets\img\user2-160x160.jpg" />
+    <Content Include="assets\js\adminlte.js" />
+    <Content Include="assets\js\adminlte.min.js" />
+    <Content Include="assets\libs\angular-ui-router.js" />
+    <Content Include="assets\libs\angular-ui-router.min.js" />
+    <Content Include="assets\libs\angular.js" />
+    <Content Include="assets\libs\angular.min.js" />
+    <Content Include="assets\libs\bootstrap.js" />
+    <Content Include="assets\libs\bootstrap.min.js" />
+    <Content Include="assets\libs\jquery.js" />
+    <Content Include="assets\libs\jquery.min.js" />
+    <Content Include="index.html" />
+    <Content Include="Layout.html" />
+    <Content Include="login.html" />
     <Content Include="packages.config" />
+    <Content Include="assets\css\adminlte.css.map" />
+    <Content Include="assets\css\adminlte.min.css.map" />
+    <Content Include="assets\css\bootstrap-theme.css.map" />
+    <Content Include="assets\css\bootstrap-theme.min.css.map" />
+    <Content Include="assets\css\bootstrap.css.map" />
+    <Content Include="assets\css\bootstrap.min.css.map" />
+    <Content Include="assets\css\font-awesome.css.map" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\fonts\ionicons.eot" />
+    <Content Include="assets\fonts\ionicons.ttf" />
+    <Content Include="assets\fonts\ionicons.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -75,11 +130,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="View\employee\employee.html" />
+    <Content Include="View\dashboard\dashboard.html" />
+    <Content Include="View\login\login.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

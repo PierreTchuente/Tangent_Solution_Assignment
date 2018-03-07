@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="mainApp">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Practical</title>
+    <link href="/css/style.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body> <!--ng-controller="mainController"-->
+    <div id="header">
+        <h3> Tangent Solution Asignment </h3>
+    </div>
+    <div id="navabar">
+        <ul>
+            <li><a ui-sref="home">Home</a></li>
+            <li><a ui-sref="login">LogIn</a></li>
+        </ul>
+    </div>
+
+    <div class="lefSide">
+        <ul>
+            <li><a ui-sref="employee">Dashboard</a></li>
+            <li><a ui-sref="employee">Employee</a></li>
+        </ul>
+    </div>
+
+    <div class="sideRight">
+        <h2>Question on your Familly</h2>
+        <p>Is anyone famous hiding in your tree?</p>
+        <p>What is the average lifespan in your familly?</p>
+        <p>What family records will you find?</p>
+        <p>Is anyone famous hiding in your tree?</p>
+    </div>
+
+    <!--<div class="sideRight">
+        <h2>Question on your Familly</h2>
+        <p>Is anyone famous hiding in your tree?</p>
+        <p>What is the average lifespan in your familly?</p>
+        <p>What family records will you find?</p>
+        <p>Is anyone famous hiding in your tree?</p>
+    </div>-->
+
+    <div>
+        <img class="sideImage" src="/image/bgg.jpg" />
+    </div>
+
+    <div id="main">
+        <div ui-view></div>
+    </div>
+
+    <div id=footer>
+        <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Hytoryden</a></li>
+            <li><a href="#">Help</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+
+        &copy; Year 2018: All Right Reserved
+    </div>
+
+ 
+    <script src="/node_modules/angular/angular.min.js"></script>
+    <script src="/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+    <!-- My angular app module -->
+    <script src="/app/app.js"></script>
+    
+    <!-- Login Module -->
+    <script src="/app/login/module.js"></script>
+    <script src="/app/login/controllers/loginControler.js"></script>
+    <script src="/_angular/login/service/loginService.js"></script>
+
+    <!-- Employee  Module -->
+    <script src="/app/employee/module.js"></script>
+    <script src="/app/employee/controllers/employeeControler.js"></script>
+    <script src="/app/employee/service/employeeService.js"></script>
+
+</body>
+
+</html>
