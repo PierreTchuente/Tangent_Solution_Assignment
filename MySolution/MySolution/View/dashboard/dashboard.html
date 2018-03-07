@@ -1,10 +1,105 @@
 ﻿
 <div ng-controller="dashboardController">
-    <h1>Anibal Family History </h1>
-    <p>
-        Historically, surnames evolved as a way to sort people into groups - by occupation, place of origin, clan affiliation, patronage, parentage, adoption, and even physical characteristics (like red hair). Many of the modern surnames in the dictionary can
-        be traced back to Britain and Ireland. An unusually short lifespan might indicate that your Anibal ancestors lived in harsh conditions. A short lifespan might also indicate health problems that were once prevalent in your family. The SSDI
-        is a searchable database of more than 70 million names. You can find birthdates, death dates, addresses and more.
-    </p>
+
+    <!-- Small boxes (Stat box) -->
+    <div class="row">
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-aqua">
+                <div class="inner">
+                    <h3>{{numberOfSenior}}</h3>
+                    <p>Senior Developer(s)</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-bag"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3>{{numberOfJunior}}</h3>
+                    <p>Junior Developer(s)</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-person-add"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>     
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-green">
+                <div class="inner">
+                    <h3>{{numberOfFemale}}</h3>
+                    <p>Female(s)</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-stats-bars"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-red">
+                <div class="inner">
+                    <h3>{{numberOfMale}}</h3>
+                    <p>Male</p>
+                </div>
+                <div class="icon">
+                    <i class="ion ion-pie-graph"></i>
+                </div>
+                <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+            </div>
+        </div>
+        <!-- ./col -->
+    </div>
+
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Employee(s) General Information</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table id="employeTable" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Gender</th>
+                            <th>Date of Birth</th>
+                            <th>Age</th>
+                            <th>Day(s) to Birthday</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Gender</th>
+                            <th>Date of Birth</th>
+                            <th>Age</th>
+                            <th>Day(s) to Brthday</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <!-- /.box-body -->
+        </div>
+    </div>
 
 </div>
+
+<script>
+    var table = $('#employeTable').DataTable();
+</script>

@@ -104,6 +104,7 @@
     <Content Include="assets\js\adminlte.min.js" />
     <Content Include="assets\js\icheck.js" />
     <Content Include="assets\js\icheck.min.js" />
+    <Content Include="assets\js\Utility_Function.js" />
     <Content Include="assets\libs\angular-ui-router.js" />
     <Content Include="assets\libs\angular-ui-router.min.js" />
     <Content Include="assets\libs\angular.js" />
