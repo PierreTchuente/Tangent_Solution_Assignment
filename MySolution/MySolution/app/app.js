@@ -15,13 +15,13 @@ mainMod.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', functio
     $stateProvider
     .state('login', {
         url: '/login',
-        templateUrl: '/View/login/login.html'
+        templateUrl: 'View/login/login.html'
     }).state('dashboard', {
         url: '/dashboard',
-        templateUrl: '/View/dashboard/dashboard.html'
+        templateUrl: 'View/dashboard/dashboard.html'
     }).state('employee', {
         url: '/employee',
-        templateUrl: '/View/employee/employee.html'
+        templateUrl: 'View/employee/employee.html'
     })
 }]).run(['$rootScope', '$http', function ($rootScope, $http) {
     $rootScope.isLogin = true;
