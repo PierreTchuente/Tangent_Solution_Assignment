@@ -67,10 +67,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
-    <Content Include="app\employee\controllers\employeeControler.js" />
+    <Content Include="app\dashboard\controllers\dashboardController.js" />
+    <Content Include="app\dashboard\module.js" />
+    <Content Include="app\dashboard\service\dashboardService.js" />
+    <Content Include="app\profile\controllers\profileController.js" />
+    <Content Include="app\employee\controllers\employeeController.js" />
     <Content Include="app\employee\module.js" />
     <Content Include="app\employee\service\employeeService.js" />
-    <Content Include="app\login\controllers\loginControler.js" />
+    <Content Include="app\globalservice\module.js" />
+    <Content Include="app\globalservice\shareDataservice.js" />
+    <Content Include="app\login\controllers\loginController.js" />
     <Content Include="app\login\module.js" />
     <Content Include="app\login\service\loginService.js" />
     <Content Include="assets\css\AdminLTE.css" />
@@ -110,6 +116,7 @@
     <Content Include="assets\libs\jquery.dataTables.min.js" />
     <Content Include="assets\libs\jquery.js" />
     <Content Include="assets\libs\jquery.min.js" />
+    <Content Include="assets\libs\underscore.js" />
     <Content Include="index.html" />
     <Content Include="packages.config" />
     <Content Include="assets\css\adminlte.css.map" />
@@ -131,6 +138,7 @@
     <Content Include="assets\fonts\fontawesome-webfont.woff" />
     <Content Include="assets\fonts\fontawesome-webfont.woff2" />
     <Content Include="assets\fonts\FontAwesome.otf" />
+    <None Include="Properties\PublishProfiles\Tangent_Solution.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

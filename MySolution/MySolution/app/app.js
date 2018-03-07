@@ -2,13 +2,8 @@
 
 'use strict';
 
-var mainMod = angular.module('mainApp', ['ui.router', 'loginModule', 'employeeModule']);
+var mainMod = angular.module('mainApp', ['ui.router', 'sharedDataServiceModule', 'loginModule', 'employeeModule', 'dashboardModule']);
 mainMod.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
- 
-    $httpProvider.defaults.headers.common = {};
-    $httpProvider.defaults.headers.post = {};
-    $httpProvider.defaults.headers.put = {};
-    $httpProvider.defaults.headers.patch = {};
 
     $urlRouterProvider.otherwise('/login');
 
@@ -23,7 +18,23 @@ mainMod.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', functio
         url: '/employee',
         templateUrl: 'View/employee/employee.html'
     })
-}]).run(['$rootScope', '$http', function ($rootScope, $http) {
-    $rootScope.isLogin = true;
-    $rootScope.baseUrl = 'http://staging.tangent.tngnt.co';
+}]).run(['$rootScope', '$http', 'sharedDataService', function ($rootScope, $http, sharedDataService) {
+    $rootScope.isLogin = false;
+    $rootScope.baseUrl = 'http://staging.tangent.tngnt.co'; // Setting up the base url for webservices calls.
+    $rootScope.GlobalServices = {};
+    $rootScope.GlobalServices.sharedDataService = sharedDataService;
+
+}]).controller('mainController', ['$scope', '$rootScope', '$state', function ($scope, $rootScope, $state) {
+
+    $scope.logOut = function () {
+        sessionStorage.clear(); //Clear the content of the entire session storage.
+        $rootScope.isLogin = false;
+        $rootScope.GlobalServices.sharedDataService.CleanUpService(); // Clean up the service.
+        $state.go('login');
+    }
+
+    $scope.viewMyProfile = function () {
+        $state.go('profile');
+    }
+
 }]);

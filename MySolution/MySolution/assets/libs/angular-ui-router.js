@@ -2483,7 +2483,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * - **params** `{object}` - returns an array of state params that are ensured to 
    *   be a super-set of parent's params.
    * - **views** `{object}` - returns a views object where each key is an absolute view 
-   *   name (i.e. "viewName@stateName") and each value is the config object 
+   *   name (i.e. "description_title@stateName") and each value is the config object 
    *   (template, controller) for the view. Even when you don't use the views object 
    *   explicitly on a state config, one is still created for you internally.
    *   So by decorating this builder function you have access to decorating template 
@@ -3715,7 +3715,7 @@ function $ViewProvider() {
   $get.$inject = ['$rootScope', '$templateFactory'];
   function $get(   $rootScope,   $templateFactory) {
     return {
-      // $view.load('full.viewName', { template: ..., controller: ..., resolve: ..., async: false, params: ... })
+      // $view.load('full.description_title', { template: ..., controller: ..., resolve: ..., async: false, params: ... })
       /**
        * @ngdoc function
        * @name ui.router.state.$view#load
@@ -3832,7 +3832,7 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  * <div ui-view></div>
  *
  * <!-- Named -->
- * <div ui-view="viewName"></div>
+ * <div ui-view="description_title"></div>
  * </pre>
  *
  * You can only have one unnamed view within any template (or root html). If you are only using a
@@ -4049,7 +4049,7 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate,
            * Fired once the view **begins loading**, *before* the DOM is rendered.
            *
            * @param {Object} event Event object.
-           * @param {string} viewName Name of the view.
+           * @param {string} description_title Name of the view.
            */
           newScope.$emit('$viewContentLoading', name);
 
@@ -4086,7 +4086,7 @@ function $ViewDirective(   $state,   $injector,   $uiViewScroll,   $interpolate,
            * Fired once the view is **loaded**, *after* the DOM is rendered.
            *
            * @param {Object} event Event object.
-           * @param {string} viewName Name of the view.
+           * @param {string} description_title Name of the view.
            */
           currentScope.$emit('$viewContentLoaded', name);
           currentScope.$eval(onloadExp);

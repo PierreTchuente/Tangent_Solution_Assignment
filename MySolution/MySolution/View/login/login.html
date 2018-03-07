@@ -1,9 +1,9 @@
 ﻿
-<div ng-controller="loginController">
+<div ng-controller="loginController" ng-cloak>
 
     <div class="login-box">
         <div class="login-logo">
-            <p style="font-size:.6em;color:red" ng-show="has_error">UserName or Password is incorect</p>          
+            <p id="error_message" style="font-size:.6em;color:red" ng-show="has_error"></p>          
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">

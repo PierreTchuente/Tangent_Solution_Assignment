@@ -3,7 +3,7 @@
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
-<html>
+<html ng-app="mainApp" ng-controller="mainController" ng-cloak>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -54,7 +54,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini" ng-app="mainApp" ng-cloak>
+<body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
         <!-- Main Header -->
         <header class="main-header">
@@ -175,18 +175,18 @@ desired effect
                         <!-- User Account Menu -->
                         <li class="dropdown user user-menu" ng-show="isLogin"> <!--Only show the user bar if user log in-->
                             <!-- Menu Toggle Button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a style="cursor:pointer" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
                                 <img src="assets/img/user2-160x160.jpg" class="user-image" alt="User Image">
                                 <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                <span class="hidden-xs">Alexander Pierce</span>
+                                <span class="hidden-xs">{{fullName}}</span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- The user image in the menu -->
                                 <li class="user-header">
                                     <img src="assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                                     <p>
-                                        Alexander Pierce - Web Developer
+                                        {{userName}} - Web Developer
                                         <small>Member since Nov. 2012</small>
                                     </p>
                                 </li>
@@ -208,10 +208,10 @@ desired effect
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                        <a class="btn btn-default btn-flat" ng-click="viewMyProfile()">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                        <a class="btn btn-default btn-flat" ng-click="logOut()">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -234,7 +234,7 @@ desired effect
                         <img src="assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
                     <div class="pull-left info">
-                        <p>Alexander Pierce</p>
+                        <p>{{fullName}}</p>
                         <!-- Status -->
                         <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                     </div>
@@ -268,6 +268,7 @@ desired effect
                             <li><a href="#">Link in level 2</a></li>
                         </ul>
                     </li>
+                    <li><a ui-sref="profile"><i class="fa fa-user"></i> <span>Profile</span></a></li>
                 </ul>
                 <!-- /.sidebar-menu -->
             </section>
@@ -278,12 +279,12 @@ desired effect
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    {{viewName}}
+                    {{description_title}}
                     <!--<small>Optional description</small>-->
                 </h1>
                 <ol class="breadcrumb">
                     <li><a href="#"><i class="fa fa-sign-in"></i>Home</a></li>
-                    <li class="active"> {{view_lowerName}}</li>
+                    <li class="active"> {{breadcrumb_name}}</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -390,21 +391,34 @@ desired effect
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
          user experience. -->
+
     <!-- Angular lib -->
     <script src="assets/libs/angular.min.js"></script>
     <script src="assets/libs/angular-ui-router.min.js"></script>
 
+    <!-- Underscore js -->
+    <script src="assets/libs/underscore.js"></script>
+
     <!-- My angular app module -->
     <script src="app/app.js"></script>
 
+    <!-- Global Service -->
+    <script src="app/globalservice/module.js"></script>
+    <script src="app/globalservice/shareDataservice.js"></script>
+
+    <!-- Dashboard  Module -->
+    <script src="app/dashboard/module.js"></script>
+    <script src="app/dashboard/controllers/dashboardController.js"></script>
+    <script src="app/dashboard/service/dashboardService.js"></script>
+
     <!-- Login Module -->
     <script src="app/login/module.js"></script>
-    <script src="app/login/controllers/loginControler.js"></script>
+    <script src="app/login/controllers/loginController.js"></script>
     <script src="app/login/service/loginService.js"></script>
 
     <!-- Employee  Module -->
     <script src="app/employee/module.js"></script>
-    <script src="app/employee/controllers/employeeControler.js"></script>
+    <script src="app/employee/controllers/employeeController.js"></script>
     <script src="app/employee/service/employeeService.js"></script>
 
     <script>
