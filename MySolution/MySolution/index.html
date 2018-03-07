@@ -21,6 +21,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           page. However, you can choose any other skin. Make sure you
           apply the skin class to the body tag so the changes take effect. -->
     <link href="assets/css/skin-blue.min.css" rel="stylesheet" />
+    <link href="assets/css/blue.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -51,7 +52,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="hold-transition skin-blue sidebar-mini" ng-app="mainApp">
+<body class="hold-transition skin-blue sidebar-mini" ng-app="mainApp" ng-cloak>
     <div class="wrapper">
         <!-- Main Header -->
         <header class="main-header">
@@ -60,7 +61,7 @@ desired effect
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>A</b>LT</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Admin</b>LTE</span>
+                <span class="logo-lg"><img src="/assets/img/logo.png" style="max-width:100%;max-height:100%" /></span>
             </a>
             <!-- Header Navbar -->
             <nav class="navbar navbar-static-top" role="navigation">
@@ -74,7 +75,7 @@ desired effect
                         <!-- Messages: style can be found in dropdown.less-->
                         <li class="dropdown messages-menu">
                             <!-- Menu toggle button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="#" class="dropdown-toggle"> <!--data-toggle="dropdown"-->
                                 <i class="fa fa-envelope-o"></i>
                                 <span class="label label-success">4</span>
                             </a>
@@ -110,7 +111,7 @@ desired effect
                         <!-- Notifications Menu -->
                         <li class="dropdown notifications-menu">
                             <!-- Menu toggle button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="#" class="dropdown-toggle"> <!--data-toggle="dropdown"-->
                                 <i class="fa fa-bell-o"></i>
                                 <span class="label label-warning">10</span>
                             </a>
@@ -134,7 +135,7 @@ desired effect
                         <!-- Tasks Menu -->
                         <li class="dropdown tasks-menu">
                             <!-- Menu Toggle Button -->
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="#" class="dropdown-toggle"> <!--data-toggle="dropdown"-->
                                 <i class="fa fa-flag-o"></i>
                                 <span class="label label-danger">9</span>
                             </a>
@@ -170,7 +171,7 @@ desired effect
                             </ul>
                         </li>
                         <!-- User Account Menu -->
-                        <li class="dropdown user user-menu">
+                        <li class="dropdown user user-menu" ng-show="isLogin"> <!--Only show the user bar if user log in-->
                             <!-- Menu Toggle Button -->
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <!-- The user image in the navbar-->
@@ -226,7 +227,7 @@ desired effect
             <!-- sidebar: style can be found in sidebar.less -->
             <section class="sidebar">
                 <!-- Sidebar user panel (optional) -->
-                <div class="user-panel">
+                <div class="user-panel" ng-show="isLogin">
                     <div class="pull-left image">
                         <img src="/assets/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                     </div>
@@ -248,7 +249,7 @@ desired effect
                 </form>-->
                 <!-- /.search form -->
                 <!-- Sidebar Menu -->
-                <ul class="sidebar-menu" data-widget="tree">
+                <ul class="sidebar-menu" data-widget="tree" ng-show="isLogin">
                     <li class="header">HEADER</li>
                     <!-- Optionally, you can add icons to the links -->
                     <li class="active"><a ui-sref="dashboard"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
@@ -275,12 +276,12 @@ desired effect
             <!-- Content Header (Page header) -->
             <section class="content-header">
                 <h1>
-                    Page Header
-                    <small>Optional description</small>
+                    {{viewName}}
+                    <!--<small>Optional description</small>-->
                 </h1>
                 <ol class="breadcrumb">
-                    <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                    <li class="active">Here</li>
+                    <li><a href="#"><i class="fa fa-sign-in"></i>Home</a></li>
+                    <li class="active"> {{view_lowerName}}</li>
                 </ol>
             </section>
             <!-- Main content -->
@@ -380,6 +381,7 @@ desired effect
     <script src="assets/libs/bootstrap.min.js"></script>
     <!-- AdminLTE App -->
     <script src="assets/js/adminlte.min.js"></script>
+    <script src="assets/js/icheck.min.js"></script>
     <!-- Optionally, you can add Slimscroll and FastClick plugins.
          Both of these plugins are recommended to enhance the
          user experience. -->
@@ -393,7 +395,7 @@ desired effect
     <!-- Login Module -->
     <script src="/app/login/module.js"></script>
     <script src="/app/login/controllers/loginControler.js"></script>
-    <script src="/_angular/login/service/loginService.js"></script>
+    <script src="/app/login/service/loginService.js"></script>
 
     <!-- Employee  Module -->
     <script src="/app/employee/module.js"></script>

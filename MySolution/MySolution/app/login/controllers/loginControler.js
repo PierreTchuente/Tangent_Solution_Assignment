@@ -5,8 +5,11 @@
 (function () {
 
     var mainMod = angular.module('loginModule');
-    mainMod.controller('loginController', ['$scope', '$rootScope', '$http', 'loginService', function ($scope, $rootScope, $http, loginService) {
+    mainMod.controller('loginController', ['$scope', '$rootScope', '$state', '$http', '$log', 'loginService', function ($scope, $rootScope, $state, $http, $log, loginService) {
 
+        $rootScope.viewName = "LogIn Form";
+        $rootScope.view_lowerName = "login";
+        $scope.has_error = false;
 
         $scope.login = function () {
 
@@ -14,24 +17,24 @@
 
                 debugger;
 
-                var tokenString = "Token "+  response.data.token;
+                var tokenString = "Token " + response.data.token;
                 $http.defaults.headers.post['Authorization'] = tokenString;   // Setting token for post request.
                 $http.defaults.headers.common['Authorization'] = tokenString; //  Setting up token for get request.
 
                 // Save Token in session storage  for other request.
                 sessionStorage.setItem('Token', tokenString);
-
-                //$.ajaxSetup({   // Setting up ajax header in case we make use of ajax.
-                //    headers: {
-                //        'Authorization': tokenString
-                //    }});
+                $rootScope.isLogin = true;
+                $state.go('dashboard'); // redirect to the Dashboard if Success.
             }, function (error) {
 
-                $log.og(error + "Wrong Password or username");
+                debugger;
+
+                $scope.has_error = true;
+                $log.log(error);
+                $state.go('login'); // redirect to the log in if there is an error.
+                
             });
         }
-
-        debugger;
 
     }]);
 

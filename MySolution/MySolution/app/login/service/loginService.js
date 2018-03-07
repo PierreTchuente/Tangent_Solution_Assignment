@@ -9,8 +9,6 @@
 
         var loginMethod = function (username, password) {
 
-            debugger;
-
             if (username !== "" && password !== "") {
                 return $http({
                     method: 'POST',

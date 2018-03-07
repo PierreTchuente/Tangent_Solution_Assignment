@@ -75,6 +75,7 @@
     <Content Include="app\login\service\loginService.js" />
     <Content Include="assets\css\AdminLTE.css" />
     <Content Include="assets\css\AdminLTE.min.css" />
+    <Content Include="assets\css\blue.css" />
     <Content Include="assets\css\bootstrap-theme.css" />
     <Content Include="assets\css\bootstrap-theme.min.css" />
     <Content Include="assets\css\bootstrap.css" />
@@ -88,9 +89,13 @@
     <Content Include="assets\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="assets\fonts\ionicons.svg" />
+    <Content Include="assets\img\blue.png" />
+    <Content Include="assets\img\logo.png" />
     <Content Include="assets\img\user2-160x160.jpg" />
     <Content Include="assets\js\adminlte.js" />
     <Content Include="assets\js\adminlte.min.js" />
+    <Content Include="assets\js\icheck.js" />
+    <Content Include="assets\js\icheck.min.js" />
     <Content Include="assets\libs\angular-ui-router.js" />
     <Content Include="assets\libs\angular-ui-router.min.js" />
     <Content Include="assets\libs\angular.js" />
@@ -100,8 +105,6 @@
     <Content Include="assets\libs\jquery.js" />
     <Content Include="assets\libs\jquery.min.js" />
     <Content Include="index.html" />
-    <Content Include="Layout.html" />
-    <Content Include="login.html" />
     <Content Include="packages.config" />
     <Content Include="assets\css\adminlte.css.map" />
     <Content Include="assets\css\adminlte.min.css.map" />

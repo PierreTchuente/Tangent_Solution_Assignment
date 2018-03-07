@@ -3,8 +3,12 @@
 'use strict';
 
 var mainMod = angular.module('mainApp', ['ui.router', 'loginModule', 'employeeModule']);
-mainMod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider, employeeModule) {
-
+mainMod.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
+ 
+    $httpProvider.defaults.headers.common = {};
+    $httpProvider.defaults.headers.post = {};
+    $httpProvider.defaults.headers.put = {};
+    $httpProvider.defaults.headers.patch = {};
     $urlRouterProvider.otherwise('/login');
 
     $stateProvider
@@ -19,5 +23,6 @@ mainMod.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider
         templateUrl: '/View/employee/employee.html'
     })
 }]).run(['$rootScope', '$http', function ($rootScope, $http) {
+    $rootScope.isLogin = false;
     $rootScope.baseUrl = 'http://staging.tangent.tngnt.co';
 }]);
