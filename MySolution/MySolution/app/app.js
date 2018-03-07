@@ -9,6 +9,7 @@ mainMod.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', functio
     $httpProvider.defaults.headers.post = {};
     $httpProvider.defaults.headers.put = {};
     $httpProvider.defaults.headers.patch = {};
+
     $urlRouterProvider.otherwise('/login');
 
     $stateProvider
@@ -23,6 +24,6 @@ mainMod.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', functio
         templateUrl: '/View/employee/employee.html'
     })
 }]).run(['$rootScope', '$http', function ($rootScope, $http) {
-    $rootScope.isLogin = false;
+    $rootScope.isLogin = true;
     $rootScope.baseUrl = 'http://staging.tangent.tngnt.co';
 }]);

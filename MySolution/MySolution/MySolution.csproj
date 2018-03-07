@@ -80,6 +80,8 @@
     <Content Include="assets\css\bootstrap-theme.min.css" />
     <Content Include="assets\css\bootstrap.css" />
     <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\dataTables.bootstrap.css" />
+    <Content Include="assets\css\dataTables.bootstrap.min.css" />
     <Content Include="assets\css\font-awesome.css" />
     <Content Include="assets\css\font-awesome.min.css" />
     <Content Include="assets\css\ionicons.css" />
@@ -102,6 +104,10 @@
     <Content Include="assets\libs\angular.min.js" />
     <Content Include="assets\libs\bootstrap.js" />
     <Content Include="assets\libs\bootstrap.min.js" />
+    <Content Include="assets\libs\dataTables.bootstrap.js" />
+    <Content Include="assets\libs\dataTables.bootstrap.min.js" />
+    <Content Include="assets\libs\jquery.dataTables.js" />
+    <Content Include="assets\libs\jquery.dataTables.min.js" />
     <Content Include="assets\libs\jquery.js" />
     <Content Include="assets\libs\jquery.min.js" />
     <Content Include="index.html" />
@@ -133,6 +139,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="View\employee\data.html" />
     <Content Include="View\employee\employee.html" />
     <Content Include="View\dashboard\dashboard.html" />
     <Content Include="View\login\login.html" />

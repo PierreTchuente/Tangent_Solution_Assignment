@@ -7,7 +7,8 @@
     var mainMod = angular.module('employeeModule');
     mainMod.controller('employeeController', ['$state', '$scope', '$rootScope', '$http', '$log', 'employeeService', function ($state, $scope, $rootScope, $http, $log, employeeService) {
 
-        debugger;
+        $rootScope.viewName = "Employee List";
+        $rootScope.view_lowerName = "Employee";
 
         var Token = $http.defaults.headers.common['Authorization']; // means User has reload the page. 
         if (Token === undefined) {
@@ -18,7 +19,6 @@
             debugger;
 
         }, function (error) {
-
             if (error.status === 403) {
                 $state.go('login');
             }
