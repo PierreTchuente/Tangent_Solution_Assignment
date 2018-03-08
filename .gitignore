@@ -16,9 +16,6 @@ MySolution/MySolution/Web.Release.config
 *.props
 *.rtf
 *.targets
-MySolution/packages/Microsoft.Net.Compilers.1.0.0/tools/VBCSCompiler.exe.config
-MySolution/MySolution/packages.config
-MySolution/MySolution.sln
 
 #ignore All Release and Debug Files.
 MySolution/MySolution/obj/*
