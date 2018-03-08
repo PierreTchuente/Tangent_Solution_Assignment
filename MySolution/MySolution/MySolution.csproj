@@ -79,6 +79,7 @@
     <Content Include="app\login\controllers\loginController.js" />
     <Content Include="app\login\module.js" />
     <Content Include="app\login\service\loginService.js" />
+    <Content Include="app\profile\module.js" />
     <Content Include="assets\css\AdminLTE.css" />
     <Content Include="assets\css\AdminLTE.min.css" />
     <Content Include="assets\css\blue.css" />
@@ -148,10 +149,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="View\employee\data.html" />
     <Content Include="View\employee\employee.html" />
     <Content Include="View\dashboard\dashboard.html" />
     <Content Include="View\login\login.html" />
+    <Content Include="View\profile\profile.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

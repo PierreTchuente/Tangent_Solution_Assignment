@@ -2,7 +2,7 @@
 
 'use strict';
 
-var mainMod = angular.module('mainApp', ['ui.router', 'sharedDataServiceModule', 'loginModule', 'employeeModule', 'dashboardModule']);
+var mainMod = angular.module('mainApp', ['ui.router', 'sharedDataServiceModule', 'loginModule', 'employeeModule', 'dashboardModule', 'profileModule']);
 mainMod.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', function ($stateProvider, $urlRouterProvider, $httpProvider) {
 
     $urlRouterProvider.otherwise('/login');
@@ -17,8 +17,12 @@ mainMod.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', functio
     }).state('employee', {
         url: '/employee',
         templateUrl: 'View/employee/employee.html'
+    }).state('profile', {
+        url: '/profile',
+        templateUrl: 'View/profile/profile.html'
     })
 }]).run(['$rootScope', '$http', 'sharedDataService', function ($rootScope, $http, sharedDataService) {
+
     $rootScope.isLogin = false;
     $rootScope.baseUrl = 'http://staging.tangent.tngnt.co'; // Setting up the base url for webservices calls.
     $rootScope.GlobalServices = {};

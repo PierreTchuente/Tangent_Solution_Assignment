@@ -17,6 +17,9 @@
         var User = null;
         if (!$rootScope.isLogin) { //In case the user click else where and click back on the dashboard.
             User = $rootScope.GlobalServices.sharedDataService.getShareModel("UserProfile", "userData");
+            if (User === null) {
+                $state.go('login');
+            }
             $rootScope.fullName = User.first_name + " " + User.last_name;
             $rootScope.email = User.email;
             $rootScope.userName = User.username;
