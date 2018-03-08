@@ -65,7 +65,7 @@
                 }
                 $log.log(error);
             });
-        } else { //The user has already login.
+        } else { //The user has already login. Cache the Employee List.
             $scope.numberOfSenior = sessionStorage.getItem("Senior");
             $scope.numberOfJunior = sessionStorage.getItem("Junior");
             $scope.numberOfMale = sessionStorage.getItem("Male");
