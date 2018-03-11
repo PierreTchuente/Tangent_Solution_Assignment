@@ -5,7 +5,7 @@
 (function () {
 
     var mainMod = angular.module('dashboardModule');
-    mainMod.controller('dashboardController', ['$state', '$scope', '$rootScope', '$http', '$log', '$filter', 'employeeService', function ($state, $scope, $rootScope, $http, $log, $filter, employeeService) {
+    mainMod.controller('dashboardController', ['$state', '$scope', '$rootScope', '$http', '$log', '$filter', 'employeeService', 'sharedDataService', function ($state, $scope, $rootScope, $http, $log, $filter, employeeService, sharedDataService) {
 
         $rootScope.description_title = "General Information";
         $rootScope.breadcrumb_name = "Dashboard";
@@ -13,17 +13,13 @@
         $scope.numberOfJunior = 0;
         $scope.numberOfMale = 0;
         $scope.numberOfFemale = 0;
+        var Employee_General_Info;
 
-        var User = null;
-        if (!$rootScope.isLogin) { //In case the user click else where and click back on the dashboard.
-            User = $rootScope.GlobalServices.sharedDataService.getShareModel("UserProfile", "userData");
-            if (User === null) {
-                $state.go('login');
-            }
-            $rootScope.fullName = User.first_name + " " + User.last_name;
-            $rootScope.email = User.email;
-            $rootScope.userName = User.username;
-            $rootScope.isLogin = true;
+        debugger;
+
+        Employee_General_Info = sharedDataService.getShareModel("Employee", "GeneralInformation");
+
+        if (Employee_General_Info === null) {
 
             //Setting the  Authorization token before making the request.
             $http.defaults.headers.common['Authorization'] = sessionStorage.getItem("Token");
@@ -31,8 +27,8 @@
 
                 $log.log(response.data);
 
-                $rootScope.GlobalServices.sharedDataService.setShareModel("Employee", "employeeList", response.data);
-                $scope.Employee_General_Info = [];
+                sharedDataService.setShareModel("Employee", "employeeList", response.data);
+                Employee_General_Info = [];
                 $.each(response.data, function (index, item) {
 
                     utility_isSenior(item.position.level) ? $scope.numberOfSenior++ : $scope.numberOfJunior++;
@@ -45,7 +41,7 @@
 
                     var birth_date = $filter('date')(item.birth_date, 'mediumDate');
                     var gender = utility_Gender(item.gender);
-                    $scope.Employee_General_Info.push({
+                    Employee_General_Info.push({
                         github_user: item.github_user,
                         email: item.email,
                         phone_number: item.phone_number,
@@ -57,21 +53,23 @@
                     table.row.add([item.github_user, item.email, item.phone_number, gender, birth_date, item.age, item.days_to_birthday]); // Adding rows in table.
                 });
                 table.draw();
-                $rootScope.GlobalServices.sharedDataService.setShareModel("Employee", "GeneralInformation", $scope.Employee_General_Info);
+                sharedDataService.setShareModel("Employee", "GeneralInformation", Employee_General_Info); //Setting employee general info for caching.
 
             }, function (error) {
                 if (error.status === 403) {
+                    $log.log(error);
                     $state.go('login');
                 }
-                $log.log(error);
             });
-        } else { //The user has already login. Cache the Employee List.
+
+        } else {
+
+            //The user has already login. Cache the Employee List.
             $scope.numberOfSenior = sessionStorage.getItem("Senior");
             $scope.numberOfJunior = sessionStorage.getItem("Junior");
             $scope.numberOfMale = sessionStorage.getItem("Male");
             $scope.numberOfFemale = sessionStorage.getItem("Female");
-            $scope.Employee_General_Info = $rootScope.GlobalServices.sharedDataService.getShareModel("Employee", "GeneralInformation");
-            $.each($scope.Employee_General_Info, function (index, item) {
+            $.each(Employee_General_Info, function (index, item) {
                 table.row.add([item.github_user, item.email, item.phone_number, item.gender, item.birth_date, item.age, item.days_to_birthday]); // Adding rows in table.
             });
             table.draw();

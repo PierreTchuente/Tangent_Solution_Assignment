@@ -21,19 +21,30 @@ mainMod.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', functio
         url: '/profile',
         templateUrl: 'View/profile/profile.html'
     })
-}]).run(['$rootScope', '$http', 'sharedDataService', function ($rootScope, $http, sharedDataService) {
+}]).run(['$rootScope', '$http', 'sharedDataService', function ($rootScope, $http) {
 
     $rootScope.isLogin = false;
     $rootScope.baseUrl = 'http://staging.tangent.tngnt.co'; // Setting up the base url for webservices calls.
-    $rootScope.GlobalServices = {};
-    $rootScope.GlobalServices.sharedDataService = sharedDataService;
 
-}]).controller('mainController', ['$scope', '$rootScope', '$state', function ($scope, $rootScope, $state) {
+}]).controller('mainController', ['$scope', '$rootScope', '$state', 'sharedDataService', function ($scope, $rootScope, $state, sharedDataService) {
+
+    var token = sessionStorage.getItem("Token");
+    if (token !== undefined && token !== null && token !== "") { //This means the user has already login. He is refreshing the page.
+
+      var User = sessionStorage.getItem('User');
+      if (User !== undefined && User !== null && User !== "") {
+            User = JSON.parse(User);
+            $rootScope.fullName = User.first_name + " " + User.last_name;
+            $rootScope.email = User.email;
+            $rootScope.userName = User.username;
+            $rootScope.isLogin = true;
+        }
+    }
 
     $scope.logOut = function () {
         sessionStorage.clear(); //Clear the content of the entire session storage.
         $rootScope.isLogin = false;
-        $rootScope.GlobalServices.sharedDataService.CleanUpService(); // Clean up the service.
+        sharedDataService.CleanUpService(); // Clean up the service.
         $state.go('login');
     }
 

@@ -5,10 +5,11 @@
 (function () {
 
     var mainMod = angular.module('profileModule');
-    mainMod.controller('profileController', ['$state', '$scope', '$rootScope', '$http', '$log', '$location', '$anchorScroll', function ($state, $scope, $rootScope, $http, $log, $location, $anchorScroll) {
+    mainMod.controller('profileController', ['$state', '$scope', '$rootScope', '$http', '$log', function ($state, $scope, $rootScope, $http, $log) {
 
         $rootScope.description_title = "My Profile";
         $rootScope.breadcrumb_name = "Profile";
+        $rootScope.isLogin = true;
        
         $scope.model = {};
         $scope.model.profile = {};
