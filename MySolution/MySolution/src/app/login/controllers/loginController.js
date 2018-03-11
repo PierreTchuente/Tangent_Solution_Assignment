@@ -31,6 +31,9 @@
                     //Making sure that only active users have access.
                     if (User.is_active === true || User.is_active === "true") {
 
+                        $rootScope.fullName = User.first_name + " " + User.last_name;
+                        $rootScope.email = User.email;
+                        $rootScope.userName = User.username;
                         sessionStorage.setItem('User', JSON.stringify(User)); // We are keeping a copy of the data to avoid unnecesary request.                       
                         sessionStorage.setItem('Token', tokenString);  // Save Token in session storage  for other request.
                         $rootScope.isLogin = true;

@@ -19,5 +19,6 @@ MySolution/MySolution/Web.Release.config
 #ignore All Release and Debug Files.
 MySolution/MySolution/obj/*
 MySolution/MySolution/Properties/*
+MySolution/MySolution/node_modules/*
 
 
