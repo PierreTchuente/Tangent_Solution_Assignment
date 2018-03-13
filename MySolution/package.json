@@ -1,0 +1,41 @@
+{
+  "name": "MySolution_v2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "npm run open",
+    "open": "concurrently \"http-server -a localhost -p 85\" \"start http://localhost:85/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "concurrently": "^3.5.1",
+    "css-loader": "^0.28.10",
+    "expose-loader": "^0.7.5",
+    "file-loader": "^1.1.11",
+    "http-server": "^0.11.1",
+    "style-loader": "^0.20.3",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.11"
+  },
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.15",
+    "angular": "^1.6.9",
+    "bootstrap": "^4.0.0",
+    "datatables": "^1.10.13",
+    "extract-text-webpack-plugin": "^4.0.0-alpha.0",
+    "font-awesome": "^4.7.0",
+    "ionicons": "^3.0.0",
+    "jquery": "^3.3.1",
+    "popper.js": "^1.14.0",
+    "underscore": "^1.8.3"
+  }
+}

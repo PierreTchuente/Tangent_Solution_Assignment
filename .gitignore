@@ -15,10 +15,7 @@ MySolution/MySolution/Web.Release.config
 *.props
 *.rtf
 *.targets
-
-#ignore All Release and Debug Files.
-MySolution/MySolution/obj/*
-MySolution/MySolution/Properties/*
-MySolution/MySolution/node_modules/*
+#ignore All Files under the node_modules.
+MySolution/node_modules/*
 
 
