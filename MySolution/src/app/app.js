@@ -1,5 +1,4 @@
-﻿/// <reference path="E:\Web_Site_Vs\Flow_Design\Flow_Design\node_modules/angular/angular.js" />
-
+﻿
 'use strict';
 
 var mainMod = angular.module('mainApp', ['ui.router', 'sharedDataServiceModule', 'loginModule', 'employeeModule', 'dashboardModule', 'profileModule']);

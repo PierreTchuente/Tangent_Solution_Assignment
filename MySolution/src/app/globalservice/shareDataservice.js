@@ -27,7 +27,7 @@
         };
 
         var CleanUpService = function () {
-            if (shareModel !== undefined && shareModel !== null && _.isObject(shareModel)) {
+            if (shareModel !== undefined && shareModel !== null && isObject(shareModel)) {
                 for (var subSystem in shareModel) {
                     delete shareModel[subSystem];
                 }
@@ -50,7 +50,7 @@
         }
 
         var CleanUpServiceKeyExcept = function (subSystem, key) {
-            if (shareModel !== undefined && shareModel !== null && _.isObject(shareModel)) {
+            if (shareModel !== undefined && shareModel !== null && isObject(shareModel)) {
                 if (key !== undefined && key !== null) {
                     var subSystemPtr = shareModel[subSystem];
                     for (var k in subSystemPtr) {
@@ -62,6 +62,11 @@
                 }
             }
         }
+        
+        //function to check if a value is object
+        function isObject (value) {
+            return value && typeof value === 'object' && value.constructor === Object;
+            };
 
         // Returning an Object with callable methods.
         return {

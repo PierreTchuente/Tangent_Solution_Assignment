@@ -1,5 +1,6 @@
-﻿/// <reference path="E:\Web_Site_Vs\Flow_Design\Flow_Design\node_modules/angular/angular.js" />
-
+﻿import { utility_Gender, utility_Race, utility_Review, utility_isSenior, utility_isMale } from '../../../assets/js/Utility_Function'; // importing my utilities function.
+                                                                                                                                      // *%*Note: Pierre - Remember in a near future to find a way to globally expose your utilities functions.
+                                                                                                                                      
 'use strict';
 
 (function () {
